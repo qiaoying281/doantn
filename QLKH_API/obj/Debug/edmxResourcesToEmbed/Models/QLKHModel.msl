@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLKHModelStoreContainer" CdmEntityContainer="QLKHEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="QLKHModel.Account">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="decentralizationId" ColumnName="decentralizationId" />
+          <ScalarProperty Name="resetPasswordToken" ColumnName="resetPasswordToken" />
+          <ScalarProperty Name="resetPasswordTokenExpiry" ColumnName="resetPasswordTokenExpiry" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="QLKHModel.Answer">
+        <MappingFragment StoreEntitySet="Answers">
+          <ScalarProperty Name="answerID" ColumnName="answerID" />
+          <ScalarProperty Name="questionID" ColumnName="questionID" />
+          <ScalarProperty Name="rightAnswer" ColumnName="rightAnswer" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseParts">
+      <EntityTypeMapping TypeName="QLKHModel.CoursePart">
+        <MappingFragment StoreEntitySet="CourseParts">
+          <ScalarProperty Name="coursePartID" ColumnName="coursePartID" />
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+          <ScalarProperty Name="partTitle" ColumnName="partTitle" />
+          <ScalarProperty Name="amout" ColumnName="amout" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+          <ScalarProperty Name="index" ColumnName="index" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="QLKHModel.Cours">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+          <ScalarProperty Name="courseName" ColumnName="courseName" />
+          <ScalarProperty Name="courseDescription" ColumnName="courseDescription" />
+          <ScalarProperty Name="tutorID" ColumnName="tutorID" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Decentralizations">
+      <EntityTypeMapping TypeName="QLKHModel.Decentralization">
+        <MappingFragment StoreEntitySet="Decentralizations">
+          <ScalarProperty Name="decentralizationID" ColumnName="decentralizationID" />
+          <ScalarProperty Name="authorityName" ColumnName="authorityName" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enrollments">
+      <EntityTypeMapping TypeName="QLKHModel.Enrollment">
+        <MappingFragment StoreEntitySet="Enrollments">
+          <ScalarProperty Name="enrollmentID" ColumnName="enrollmentID" />
+          <ScalarProperty Name="studentID" ColumnName="studentID" />
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+          <ScalarProperty Name="tutorID" ColumnName="tutorID" />
+          <ScalarProperty Name="enrollmentDate" ColumnName="enrollmentDate" />
+          <ScalarProperty Name="statusTypeID" ColumnName="statusTypeID" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exams">
+      <EntityTypeMapping TypeName="QLKHModel.Exam">
+        <MappingFragment StoreEntitySet="Exams">
+          <ScalarProperty Name="examID" ColumnName="examID" />
+          <ScalarProperty Name="coursePartID" ColumnName="coursePartID" />
+          <ScalarProperty Name="examTypeID" ColumnName="examTypeID" />
+          <ScalarProperty Name="examName" ColumnName="examName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="workTime" ColumnName="workTime" />
+          <ScalarProperty Name="dueDate" ColumnName="dueDate" />
+          <ScalarProperty Name="minGrade" ColumnName="minGrade" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExamTypes">
+      <EntityTypeMapping TypeName="QLKHModel.ExamType">
+        <MappingFragment StoreEntitySet="ExamTypes">
+          <ScalarProperty Name="examTypeID" ColumnName="examTypeID" />
+          <ScalarProperty Name="examTypeName" ColumnName="examTypeName" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fees">
+      <EntityTypeMapping TypeName="QLKHModel.Fee">
+        <MappingFragment StoreEntitySet="Fees">
+          <ScalarProperty Name="feeID" ColumnName="feeID" />
+          <ScalarProperty Name="studentID" ColumnName="studentID" />
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+          <ScalarProperty Name="isChecked" ColumnName="isChecked" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lectures">
+      <EntityTypeMapping TypeName="QLKHModel.Lecture">
+        <MappingFragment StoreEntitySet="Lectures">
+          <ScalarProperty Name="lectureID" ColumnName="lectureID" />
+          <ScalarProperty Name="coursePartID" ColumnName="coursePartID" />
+          <ScalarProperty Name="lectureTitle" ColumnName="lectureTitle" />
+          <ScalarProperty Name="lectureLink" ColumnName="lectureLink" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="isWatched" ColumnName="isWatched" />
+          <ScalarProperty Name="isWatching" ColumnName="isWatching" />
+          <ScalarProperty Name="isAvailable" ColumnName="isAvailable" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+          <ScalarProperty Name="index" ColumnName="index" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentHistorys">
+      <EntityTypeMapping TypeName="QLKHModel.PaymentHistory">
+        <MappingFragment StoreEntitySet="PaymentHistorys">
+          <ScalarProperty Name="paymentHistoryID" ColumnName="paymentHistoryID" />
+          <ScalarProperty Name="studentID" ColumnName="studentID" />
+          <ScalarProperty Name="paymentTypeID" ColumnName="paymentTypeID" />
+          <ScalarProperty Name="paymentName" ColumnName="paymentName" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentTypes">
+      <EntityTypeMapping TypeName="QLKHModel.PaymentType">
+        <MappingFragment StoreEntitySet="PaymentTypes">
+          <ScalarProperty Name="paymentTypeID" ColumnName="paymentTypeID" />
+          <ScalarProperty Name="paymentTypeName" ColumnName="paymentTypeName" />
+          <ScalarProperty Name="creatAt" ColumnName="creatAt" />
+          <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="QLKHModel.Question">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="questionID" ColumnName="questionID" />
+          <ScalarProperty Name="examID" ColumnName="examID" />
+          <ScalarProperty Name="questionName" ColumnName="questionName" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusTypes">
+      <EntityTypeMapping TypeName="QLKHModel.StatusType">
+        <MappingFragment StoreEntitySet="StatusTypes">
+          <ScalarProperty Name="statusTypeID" ColumnName="statusTypeID" />
+          <ScalarProperty Name="statusName" ColumnName="statusName" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="QLKHModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="studentID" ColumnName="studentID" />
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+          <ScalarProperty Name="provinceID" ColumnName="provinceID" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="communeID" ColumnName="communeID" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="totalMoney" ColumnName="totalMoney" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Submissions">
+      <EntityTypeMapping TypeName="QLKHModel.Submission">
+        <MappingFragment StoreEntitySet="Submissions">
+          <ScalarProperty Name="submissionID" ColumnName="submissionID" />
+          <ScalarProperty Name="examID" ColumnName="examID" />
+          <ScalarProperty Name="studentID" ColumnName="studentID" />
+          <ScalarProperty Name="submissionDate" ColumnName="submissionDate" />
+          <ScalarProperty Name="examTimes" ColumnName="examTimes" />
+          <ScalarProperty Name="grade" ColumnName="grade" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QLKHModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TutorAssignments">
+      <EntityTypeMapping TypeName="QLKHModel.TutorAssignment">
+        <MappingFragment StoreEntitySet="TutorAssignments">
+          <ScalarProperty Name="tutorAssignmentID" ColumnName="tutorAssignmentID" />
+          <ScalarProperty Name="tutorID" ColumnName="tutorID" />
+          <ScalarProperty Name="courseID" ColumnName="courseID" />
+          <ScalarProperty Name="numberOfStudent" ColumnName="numberOfStudent" />
+          <ScalarProperty Name="assignmentDate" ColumnName="assignmentDate" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tutors">
+      <EntityTypeMapping TypeName="QLKHModel.Tutor">
+        <MappingFragment StoreEntitySet="Tutors">
+          <ScalarProperty Name="tutorID" ColumnName="tutorID" />
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+          <ScalarProperty Name="provinceID" ColumnName="provinceID" />
+          <ScalarProperty Name="districtID" ColumnName="districtID" />
+          <ScalarProperty Name="communeID" ColumnName="communeID" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="updateAt" ColumnName="updateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VerifyCodes">
+      <EntityTypeMapping TypeName="QLKHModel.VerifyCode">
+        <MappingFragment StoreEntitySet="VerifyCodes">
+          <ScalarProperty Name="verifyCodeID" ColumnName="verifyCodeID" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="expiredTime" ColumnName="expiredTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
