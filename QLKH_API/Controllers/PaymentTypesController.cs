@@ -38,7 +38,7 @@ namespace QLKH_API.Controllers
                 pt1.paymentTypeID = paymentTypeID;
                 pt1.paymentTypeName = paymentTypeName;
                 pt1.creatAt = DateTime.Now;
-                pt1.updateAt = DateTime.Now;
+                pt1.updatedAt = DateTime.Now;
                 db.PaymentTypes.Add(pt1);
                 db.SaveChanges();
                 return true;

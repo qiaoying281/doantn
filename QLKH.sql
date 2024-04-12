@@ -30,6 +30,18 @@ GO
 
 USE [QLKH]
 GO
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 3/31/2024 5:37:33 PM ******/
+
+CREATE TABLE [dbo].[__Migrations](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
 /****** Object:  Table [dbo].[Accounts]    Script Date: 3/31/2024 5:37:33 PM ******/
 
 CREATE TABLE [dbo].[Accounts](
@@ -41,8 +53,8 @@ CREATE TABLE [dbo].[Accounts](
 	[decentralizationId] [int] NOT NULL,
 	[resetPasswordToken] [nvarchar](max) NOT NULL,
 	[resetPasswordTokenExpiry] [datetime2](7) NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_Accounts] PRIMARY KEY CLUSTERED 
 (
 	[accountID] ASC
@@ -56,8 +68,8 @@ CREATE TABLE [dbo].[Answers](
 	[questionID] [int] NOT NULL,
 	[rightAnswer] [bit] NOT NULL,
 	[content] [nvarchar](max) NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_Answers] PRIMARY KEY CLUSTERED 
 (
 	[answerID] ASC
@@ -72,8 +84,8 @@ CREATE TABLE [dbo].[CourseParts](
 	[partTitle] [nvarchar](max) NOT NULL,
 	[amout] [int] NOT NULL,
 	[duration] [int] NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
 	[index] [int] NOT NULL,
  CONSTRAINT [PK_CourseParts] PRIMARY KEY CLUSTERED 
 (
@@ -89,8 +101,8 @@ CREATE TABLE [dbo].[Courses](
 	[courseDescription] [nvarchar](max) NOT NULL,
 	[tutorID] [int] NOT NULL,
 	[cost] [int] NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_Courses] PRIMARY KEY CLUSTERED 
 (
 	[courseID] ASC
@@ -102,8 +114,8 @@ GO
 CREATE TABLE [dbo].[Decentralizations](
 	[decentralizationID] [int] IDENTITY(1,1) NOT NULL,
 	[authorityName] [nvarchar](max) NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_Decentralizations] PRIMARY KEY CLUSTERED 
 (
 	[decentralizationID] ASC
@@ -119,8 +131,8 @@ CREATE TABLE [dbo].[Enrollments](
 	[tutorID] [int] NOT NULL,
 	[enrollmentDate] [datetime2](7) NOT NULL,
 	[statusTypeID] [int] NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_Enrollments] PRIMARY KEY CLUSTERED 
 (
 	[enrollmentID] ASC
@@ -138,8 +150,8 @@ CREATE TABLE [dbo].[Exams](
 	[workTime] [int] NOT NULL,
 	[dueDate] [datetime2](7) NOT NULL,
 	[minGrade] [float] NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_Exams] PRIMARY KEY CLUSTERED 
 (
 	[examID] ASC
@@ -151,8 +163,8 @@ GO
 CREATE TABLE [dbo].[ExamTypes](
 	[examTypeID] [int] IDENTITY(1,1) NOT NULL,
 	[examTypeName] [nvarchar](max) NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_ExamTypes] PRIMARY KEY CLUSTERED 
 (
 	[examTypeID] ASC
@@ -167,8 +179,8 @@ CREATE TABLE [dbo].[Fees](
 	[courseID] [int] NOT NULL,
 	[cost] [int] NOT NULL,
 	[status] [nvarchar](max) NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
 	[isChecked] [bit] NOT NULL,
  CONSTRAINT [PK_Fees] PRIMARY KEY CLUSTERED 
 (
@@ -187,8 +199,8 @@ CREATE TABLE [dbo].[Lectures](
 	[isWatched] [bit] NOT NULL,
 	[isWatching] [bit] NOT NULL,
 	[isAvailable] [bit] NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
 	[index] [int] NOT NULL,
  CONSTRAINT [PK_Lectures] PRIMARY KEY CLUSTERED 
 (
@@ -204,8 +216,8 @@ CREATE TABLE [dbo].[PaymentHistorys](
 	[paymentTypeID] [int] NOT NULL,
 	[paymentName] [nvarchar](max) NOT NULL,
 	[amount] [int] NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_PaymentHistorys] PRIMARY KEY CLUSTERED 
 (
 	[paymentHistoryID] ASC
@@ -231,8 +243,8 @@ CREATE TABLE [dbo].[Questions](
 	[questionID] [int] IDENTITY(1,1) NOT NULL,
 	[examID] [int] NOT NULL,
 	[questionName] [nvarchar](max) NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_Questions] PRIMARY KEY CLUSTERED 
 (
 	[questionID] ASC
@@ -244,8 +256,8 @@ GO
 CREATE TABLE [dbo].[StatusTypes](
 	[statusTypeID] [int] IDENTITY(1,1) NOT NULL,
 	[statusName] [nvarchar](max) NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_StatusTypes] PRIMARY KEY CLUSTERED 
 (
 	[statusTypeID] ASC
@@ -264,8 +276,8 @@ CREATE TABLE [dbo].[Students](
 	[communeID] [int] NULL,
 	[email] [nvarchar](max) NOT NULL,
 	[totalMoney] [int] NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_Students] PRIMARY KEY CLUSTERED 
 (
 	[studentID] ASC
@@ -281,8 +293,8 @@ CREATE TABLE [dbo].[Submissions](
 	[submissionDate] [datetime2](7) NOT NULL,
 	[examTimes] [int] NOT NULL,
 	[grade] [int] NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_Submissions] PRIMARY KEY CLUSTERED 
 (
 	[submissionID] ASC
@@ -297,8 +309,8 @@ CREATE TABLE [dbo].[TutorAssignments](
 	[courseID] [int] NOT NULL,
 	[numberOfStudent] [int] NOT NULL,
 	[assignmentDate] [datetime2](7) NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_TutorAssignments] PRIMARY KEY CLUSTERED 
 (
 	[tutorAssignmentID] ASC
@@ -316,8 +328,8 @@ CREATE TABLE [dbo].[Tutors](
 	[districtID] [int] NULL,
 	[communeID] [int] NULL,
 	[email] [nvarchar](max) NOT NULL,
-	[createAt] [datetime2](7) NOT NULL,
-	[updateAt] [datetime2](7) NOT NULL,
+	[createdAt] [datetime2](7) NOT NULL,
+	[updatedAt] [datetime2](7) NOT NULL,
  CONSTRAINT [PK_Tutors] PRIMARY KEY CLUSTERED 
 (
 	[tutorID] ASC
