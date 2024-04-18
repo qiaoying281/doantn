@@ -105,7 +105,7 @@
                     else
                     {
                         <tr>
-                            <td colspan="4">Don't exists any account.</td>
+                            <td colspan="4">Don't exists any records.</td>
                         </tr>
                     }
                 </tbody>
@@ -151,7 +151,7 @@
                     }
                 });
                 if (str.length > 0) {
-                    var conf = confirm("Do you want to delete there Accounts?");
+                    var conf = confirm("Do you want to delete there records?");
                     if (conf === true) {
                         $.ajax({
                             url: '/admin/Account/deleteAll',

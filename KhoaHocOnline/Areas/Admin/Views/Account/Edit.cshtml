@@ -71,11 +71,10 @@
                             <label for="InputAvatar">Avatar</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input asp-for="avatar" type="file" class="custom-file-input" id="InputAvatar">
-                                    <label class="custom-file-label" for="InputAvatar">Choose file</label>
+                                    @Html.TextBoxFor(x => x.Avatar, new { @id = "txtImage", @class = "form-control" })
                                 </div>
                                 <div class="input-group-append">
-                                    <span class="input-group-text">Upload</span>
+                                    <input type="button" value="Upload" onclick="BrowseServer('txtImage');" />
                                 </div>
                             </div>
                         </div>
@@ -106,10 +105,21 @@
         <!-- /.card-body -->
         @*<div class="card-footer">
 
-        </div>*@
+            </div>*@
         <!-- /.card-footer-->
     </div>
     <!-- /.card -->
 
 </section>
 <!-- /.content -->
+@section scripts{
+    <script>
+        function BrowseServer(field) {
+            var finder = new CKFinder();
+            finder.selecetActionFunction = function (fileUrl) {
+                document.getElementById(field).value = fileUrl;
+            };
+            finder.popup();
+        }
+    </script>
+}

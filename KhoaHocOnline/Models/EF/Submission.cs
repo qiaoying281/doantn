@@ -20,9 +20,6 @@ namespace KhoaHocOnline.Models.EF
         [Required(ErrorMessage = "Student ID must not null.")]
         public int StudentID { get; set; }
 
-        [Required(ErrorMessage = "Submission Date must not null.")]
-        public DateTime SubmissionDate { get; set; }
-
         [Required(ErrorMessage = "Exam time must not null.")]
         public int ExamTimes { get; set; }
 

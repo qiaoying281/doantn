@@ -23,9 +23,6 @@ namespace KhoaHocOnline.Models.EF
         [Required(ErrorMessage = "Tutor ID must not null.")]
         public int TutorID { get; set; }
 
-        [Required(ErrorMessage = "Enrollment date must not null.")]
-        public DateTime EnrollmentDate { get; set; }
-
         [Required(ErrorMessage = "Status type ID must not null.")]
         public int StatusTypeID { get; set; }
 

@@ -23,9 +23,6 @@ namespace KhoaHocOnline.Models.EF
         [Required(ErrorMessage = "Number of student must not null.")]
         public int NumberOfStudent { get; set; }
 
-        [Required(ErrorMessage = "Assignment date must not null.")]
-        public DateTime AssignmentDate { get; set; }
-
         public virtual Tutor Tutor { get; set; }
     }
 }

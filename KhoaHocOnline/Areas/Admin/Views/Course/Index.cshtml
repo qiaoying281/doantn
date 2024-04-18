@@ -52,7 +52,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
-                    @using (Html.BeginForm("Index", "Account", FormMethod.Get, new { }))
+                    @using (Html.BeginForm("Index", "Course", FormMethod.Get, new { }))
                     {
                         <div class="input-group input-group-sm">
                             @Html.TextBox("searchText", "Input name", new { @class = "form-control" })
@@ -109,7 +109,7 @@
                     else
                     {
                         <tr>
-                            <td colspan="4">Don't exists any course.</td>
+                            <td colspan="4">Don't exists any records.</td>
                         </tr>
                     }
                 </tbody>
@@ -155,7 +155,7 @@
                     }
                 });
                 if (str.length > 0) {
-                    var conf = confirm("Do you want to delete there courses?");
+                    var conf = confirm("Do you want to delete there records?");
                     if (conf === true) {
                         $.ajax({
                             url: '/admin/course/deleteAll',
@@ -206,7 +206,7 @@
                 $.ajax({
                     url: '/admin/course/IsActive',
                     type: 'POST',
-                    data: { CourseID: id },
+                    data: { id: id },
                     success: function (rs) {
                         if (rs.success) {
                             if (rs.isActive) {

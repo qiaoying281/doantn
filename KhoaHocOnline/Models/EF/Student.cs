@@ -30,10 +30,6 @@ namespace KhoaHocOnline.Models.EF
         [Required(ErrorMessage = "Contact number must not null.")]
         public string ContactNumber { get; set; }
 
-        public int ProvinceID { get; set; }
-        public int DistrictID { get; set; }
-        public int CommuneID { get; set; }
-
         [Required(ErrorMessage = "Email must not null.")]
         public string Email { get; set; }
 

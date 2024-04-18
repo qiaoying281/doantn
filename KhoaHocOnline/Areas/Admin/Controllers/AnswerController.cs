@@ -1,5 +1,6 @@
 ﻿using KhoaHocOnline.Models;
 using KhoaHocOnline.Models.EF;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,22 @@ namespace KhoaHocOnline.Areas.Admin.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Admin/Answer
-        public ActionResult Index()
+        public ActionResult Index(string searchText, int? page)
         {
-            var items = db.Answers.OrderByDescending(x => x.AnswerID).ToList();
+            var pageSize = 5;
+            if (page == null)
+            {
+                page = 1;
+            }
+            IEnumerable<Answer> items = db.Answers.OrderByDescending(x => x.AnswerID);
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                items = items.Where(x => x.Content.Contains(searchText));
+            }
+            var pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            items = db.Answers.OrderByDescending(x => x.AnswerID).ToPagedList(pageIndex, pageSize);
+            ViewBag.PageSize = pageSize;
+            ViewBag.Page = page;
             return View(items);
         }
 
@@ -48,16 +62,16 @@ namespace KhoaHocOnline.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Answers.Attach(model);
                 model.UpdatedAt = DateTime.Now;
-                db.Entry(model).Property(x => x.QuestionID).IsModified = true;
-                db.Entry(model).Property(x => x.RightAnswer).IsModified = true;
-                db.Entry(model).Property(x => x.Content).IsModified = true;
+                db.Answers.Attach(model);
+                db.Entry(model).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
         }
+
+        [HttpPost]
         public ActionResult Delete(int id)
         {
             var item = db.Answers.Find(id);
@@ -67,6 +81,40 @@ namespace KhoaHocOnline.Areas.Admin.Controllers
                 db.SaveChanges();
                 return Json(new { success = true });
 
+            }
+            return Json(new { success = false });
+        }
+
+        //[HttpPost]
+        //public ActionResult IsActive(int id)
+        //{
+        //    var item = db.Answers.Find(id);
+        //    if (item != null)
+        //    {
+        //        item.IsActive = !item.IsActive;
+        //        db.Entry(item).State = System.Data.Entity.EntityState.Modified;
+        //        db.SaveChanges();
+        //        return Json(new { success = true, isActive = item.IsActive });
+        //    }
+        //    return Json(new { success = false });
+        //}
+
+        [HttpPost]
+        public ActionResult DeleteAll(string AnswerIDs)
+        {
+            if (!string.IsNullOrEmpty(AnswerIDs))
+            {
+                var items = AnswerIDs.Split(',');
+                if (items != null && items.Any())
+                {
+                    foreach (var item in items)
+                    {
+                        var obj = db.Answers.Find(Convert.ToInt32(item));
+                        db.Answers.Remove(obj);
+                        db.SaveChanges();
+                    }
+                }
+                return Json(new { success = true });
             }
             return Json(new { success = false });
         }
