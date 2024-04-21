@@ -10,7 +10,8 @@ namespace KhoaHocOnline.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        
+        public string FullName { get; set; }
+        public string Phone {  get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -31,6 +32,7 @@ namespace KhoaHocOnline.Models
         public DbSet<Answer> Answers { get; set; }
         public DbSet<CoursePart> CourseParts { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseType> CourseTypes { get; set; }
         public DbSet<Decentralization> Decentralizations { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Exam> Exams { get; set; }
@@ -39,10 +41,8 @@ namespace KhoaHocOnline.Models
         public DbSet<PaymentHistory> PaymentHistorys { get; set; }
         public DbSet<PaymentType> PaymentTypes { get; set; }
         public DbSet<Question> Questions { get; set; }
-        public DbSet<StatusType> StatusTypes { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Submission> Submissions { get; set; }
-        public DbSet<TutorAssignment> TutorAssignments { get; set; }
         public DbSet<Tutor> Tutors { get; set; }
         public DbSet<VerifyCode> VerifyCodes { get; set; }
 

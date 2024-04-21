@@ -74,6 +74,7 @@
                         <th>Tutor ID</th>
                         <th>Cost</th>
                         <th>Is Active</th>
+                        <th>Course Type ID</th>
                         <th>Created At</th>
                         <th>Updated At</th>
                     </tr>
@@ -96,6 +97,7 @@
                                 <td class="text-center">
                                     <a href='#' data-id="@item.CourseID" class="btnActive">@Html.Raw(strCheck)</a>
                                 </td>
+                                <td>@item.CourseTypeID</td>
                                 <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>
                                 <td>@item.UpdatedAt.ToString("dd/MM/yyyy")</td>
                                 <td>

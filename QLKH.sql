@@ -188,26 +188,6 @@ CREATE TABLE [dbo].[Fees](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Lectures]    Script Date: 3/31/2024 5:37:33 PM ******/
-
-CREATE TABLE [dbo].[Lectures](
-	[lectureID] [int] IDENTITY(1,1) NOT NULL,
-	[coursePartID] [int] NOT NULL,
-	[lectureTitle] [nvarchar](max) NOT NULL,
-	[lectureLink] [nvarchar](max) NOT NULL,
-	[duration] [int] NULL,
-	[isWatched] [bit] NOT NULL,
-	[isWatching] [bit] NOT NULL,
-	[isAvailable] [bit] NOT NULL,
-	[createdAt] [datetime2](7) NOT NULL,
-	[updatedAt] [datetime2](7) NOT NULL,
-	[index] [int] NOT NULL,
- CONSTRAINT [PK_Lectures] PRIMARY KEY CLUSTERED 
-(
-	[lectureID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
 /****** Object:  Table [dbo].[PaymentHistorys]    Script Date: 3/31/2024 5:37:33 PM ******/
 
 CREATE TABLE [dbo].[PaymentHistorys](
@@ -403,12 +383,6 @@ CREATE NONCLUSTERED INDEX [IX_Fees_studentID] ON [dbo].[Fees]
 	[studentID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_Lectures_coursePartID]    Script Date: 3/31/2024 5:37:34 PM ******/
-CREATE NONCLUSTERED INDEX [IX_Lectures_coursePartID] ON [dbo].[Lectures]
-(
-	[coursePartID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
 /****** Object:  Index [IX_PaymentHistorys_paymentTypeID]    Script Date: 3/31/2024 5:37:34 PM ******/
 CREATE NONCLUSTERED INDEX [IX_PaymentHistorys_paymentTypeID] ON [dbo].[PaymentHistorys]
 (
@@ -454,8 +428,6 @@ GO
 ALTER TABLE [dbo].[CourseParts] ADD  DEFAULT ((0)) FOR [index]
 GO
 ALTER TABLE [dbo].[Fees] ADD  DEFAULT (CONVERT([bit],(0))) FOR [isChecked]
-GO
-ALTER TABLE [dbo].[Lectures] ADD  DEFAULT ((0)) FOR [index]
 GO
 ALTER TABLE [dbo].[Accounts]  WITH CHECK ADD  CONSTRAINT [FK_Accounts_Decentralizations_decentralizationId] FOREIGN KEY([decentralizationId])
 REFERENCES [dbo].[Decentralizations] ([decentralizationID])
@@ -510,12 +482,6 @@ REFERENCES [dbo].[Students] ([studentID])
 ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[Fees] CHECK CONSTRAINT [FK_Fees_Students_studentID]
-GO
-ALTER TABLE [dbo].[Lectures]  WITH CHECK ADD  CONSTRAINT [FK_Lectures_CourseParts_coursePartID] FOREIGN KEY([coursePartID])
-REFERENCES [dbo].[CourseParts] ([coursePartID])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[Lectures] CHECK CONSTRAINT [FK_Lectures_CourseParts_coursePartID]
 GO
 ALTER TABLE [dbo].[PaymentHistorys]  WITH CHECK ADD  CONSTRAINT [FK_PaymentHistorys_PaymentTypes_paymentTypeID] FOREIGN KEY([paymentTypeID])
 REFERENCES [dbo].[PaymentTypes] ([paymentTypeID])

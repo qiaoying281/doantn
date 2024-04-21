@@ -13,7 +13,6 @@ namespace KhoaHocOnline.Models.EF
         public Tutor()
         {
             this.Courses = new HashSet<Course>();
-            this.TutorAssignments = new HashSet<TutorAssignment>();
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -31,8 +30,7 @@ namespace KhoaHocOnline.Models.EF
         [Required(ErrorMessage = "Emai; must not null.")]
         public string Email { get; set; }
 
-        public virtual Account Account { get; set; }
+        public virtual Account Accounts { get; set; }
         public virtual ICollection<Course> Courses { get; set; }
-        public virtual ICollection<TutorAssignment> TutorAssignments { get; set; }
     }
 }

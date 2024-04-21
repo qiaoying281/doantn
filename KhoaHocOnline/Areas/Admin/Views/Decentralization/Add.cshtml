@@ -62,11 +62,6 @@
                     <!-- your steps content here -->
                     <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
                         <div class="form-group">
-                            <label for="InputDecentralizationID">Decentralization ID</label>
-                            @Html.TextBoxFor(x => x.DecentralizationID, new { @class = "form-control", @placeholder = "Decentralization ID" })
-                            @Html.ValidationMessageFor(x => x.DecentralizationID, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
                             <label for="InputAuthorityName">Authority Name</label>
                             @Html.TextAreaFor(x => x.AuthorityName, new { @class = "form-control", @placeholder = "AuthorityName" })
                             @Html.ValidationMessageFor(x => x.AuthorityName, null, new { @class = "text-danger" })

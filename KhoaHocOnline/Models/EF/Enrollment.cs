@@ -20,13 +20,6 @@ namespace KhoaHocOnline.Models.EF
         [Required(ErrorMessage = "Course ID must not null.")]
         public int CourseID {  get; set; }
 
-        [Required(ErrorMessage = "Tutor ID must not null.")]
-        public int TutorID { get; set; }
-
-        [Required(ErrorMessage = "Status type ID must not null.")]
-        public int StatusTypeID { get; set; }
-
-        public virtual StatusType StatusType { get; set; }
         public virtual Student Student { get; set; }
     }
 }

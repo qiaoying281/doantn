@@ -25,6 +25,6 @@ namespace KhoaHocOnline.Models.EF
         public string Content { get; set; }
         [AllowHtml]
 
-        public virtual Question Question { get; set; }
+        public virtual Question Questions { get; set; }
     }
 }

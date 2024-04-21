@@ -29,12 +29,16 @@ namespace KhoaHocOnline.Models.EF
         [Required(ErrorMessage = "Tutor ID must not null.")]
         public int TutorID { get; set; }
 
+        [Required(ErrorMessage = "Course Type ID must not null.")]
+        public int CourseTypeID { get; set; }
+
         [Required(ErrorMessage = "Cost must not null.")]
         public int Cost { get; set; }
 
         public bool IsActive {  get; set; }
 
         public virtual ICollection<CoursePart> CourseParts { get; set; }
-        public virtual Tutor Tutor { get; set; }
+        public virtual Tutor Tutors { get; set; }
+        public virtual CourseType CourseTypes { get; set; }
     }
 }

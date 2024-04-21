@@ -73,21 +73,6 @@
                             @Html.ValidationMessageFor(x => x.CourseID, null, new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
-                            <label for="InputTutorID">Tutor ID</label>
-                            @Html.TextBoxFor(x => x.TutorID, new { @class = "form-control", @placeholder = "Tutor ID" })
-                            @Html.ValidationMessageFor(x => x.TutorID, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="InputEnrollmentDate">Enrollment Date</label>
-                            @Html.TextBoxFor(x => x.EnrollmentDate, new { @class = "form-control", @placeholder = "Enrollment Date" })
-                            @Html.ValidationMessageFor(x => x.EnrollmentDate, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="InputStatusTypeID">Status Type ID</label>
-                            @Html.TextBoxFor(x => x.StatusTypeID, new { @class = "form-control", @placeholder = "Status Type ID" })
-                            @Html.ValidationMessageFor(x => x.StatusTypeID, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
                             <a href="/admin/enrollment" class="btn btn-danger">Previous</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>

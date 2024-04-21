@@ -188,3 +188,6 @@ E:\Đồ án TN\Đồ án tốt nghiệp\KhoaHocOnline\bin\pt-BR\Microsoft.Data.
 E:\Đồ án TN\Đồ án tốt nghiệp\KhoaHocOnline\bin\ru\Microsoft.Data.SqlClient.resources.dll
 E:\Đồ án TN\Đồ án tốt nghiệp\KhoaHocOnline\bin\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 E:\Đồ án TN\Đồ án tốt nghiệp\KhoaHocOnline\bin\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+E:\Đồ án TN\Đồ án tốt nghiệp\KhoaHocOnline\obj\Debug\KhoaHocOnline.Migrations.createdatabase.resources
+E:\Đồ án TN\Đồ án tốt nghiệp\KhoaHocOnline\obj\Debug\KhoaHocOnline.csproj.GenerateResource.cache
+E:\Đồ án TN\Đồ án tốt nghiệp\KhoaHocOnline\obj\Debug\KhoaHocOnline.Migrations.addct.resources

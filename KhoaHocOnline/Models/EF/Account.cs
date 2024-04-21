@@ -37,7 +37,7 @@ namespace KhoaHocOnline.Models.EF
         public string ResetPasswordToken { get; set; }
         public DateTime ResetPasswordTokenExpiry { get; set; }
 
-        public virtual Decentralization Decentralization { get; set; }
+        public virtual Decentralization Decentralizations { get; set; }
        
         public virtual ICollection<Student> Students { get; set; }
         

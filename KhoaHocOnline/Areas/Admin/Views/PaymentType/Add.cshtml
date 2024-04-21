@@ -62,11 +62,6 @@
                     <!-- your steps content here -->
                     <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
                         <div class="form-group">
-                            <label for="InputPaymentTypeID">Payment Type ID</label>
-                            @Html.TextBoxFor(x => x.PaymentTypeID, new { @class = "form-control", @placeholder = "Payment Type ID" })
-                            @Html.ValidationMessageFor(x => x.PaymentTypeID, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
                             <label for="InputPaymentTypeName">Payment Type Name</label>
                             @Html.TextBoxFor(x => x.PaymentTypeName, new { @class = "form-control", @placeholder = "Payment Type Name" })
                             @Html.ValidationMessageFor(x => x.PaymentTypeName, null, new { @class = "text-danger" })
