@@ -1,0 +1,83 @@
+[
+    {
+      "id": 1,
+      "thumbnail": "1.png",
+      "title": "UI/UX Design Masters Course",
+      "author": "David Warner",
+      "authorImg": "chat-auth.png",
+      "price": "150",
+      "lectures": "34",
+      "duration": "16"
+    },
+    {
+        "id": 2,
+        "thumbnail": "2.png",
+        "title": "React Development Course",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "price": "250",
+        "lectures": "35",
+        "duration": "15"
+    },
+    {
+        "id": 3,
+        "thumbnail": "3.png",
+        "title": "Digital Marketing Course",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "price": "350",
+        "lectures": "75",
+        "duration": "45"
+    },
+    {
+        "id": 4,
+        "thumbnail": "4.png",
+        "title": "Video Editing Basic Course",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "price": "450",
+        "lectures": "36",
+        "duration": "84"
+    },
+    {
+        "id": 5,
+        "thumbnail": "5.png",
+        "title": "Basic Graphic Design Course",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "price": "550",
+        "lectures": "73",
+        "duration": "17"
+    },
+    {
+        "id": 6,
+        "thumbnail": "6.png",
+        "title": "UI/UX Design Masters Course",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "price": "750",
+        "lectures": "25",
+        "duration": "74"
+    },
+    {
+        "id": 7,
+        "thumbnail": "7.png",
+        "title": "Advance User Experience Design ",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "price": "250",
+        "lectures": "35",
+        "duration": "15"
+    },
+    {
+        "id": 8,
+        "thumbnail": "4.png",
+        "title": "Video Editing Advance Course",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "price": "150",
+        "lectures": "75",
+        "duration": "95"
+    }
+]
+  

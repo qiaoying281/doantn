@@ -1,0 +1,83 @@
+[
+    {
+      "id": 1,
+      "thumbnail": "1.png",
+      "title": "UI/UX Design Masters Course",
+      "author": "David Warner",
+      "authorImg": "chat-auth.png",
+      "lectures": "35",
+      "duration": "15",
+      "waveType":"lectures"
+    },
+    {
+        "id": 2,
+        "thumbnail": "2.png",
+        "title": "React Development Course",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "lectures": "35",
+        "duration": "15",
+        "waveType":"lectures"
+    },
+    {
+        "id": 3,
+        "thumbnail": "3.png",
+        "title": "Digital Marketing Course",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "lectures": "35",
+        "duration": "15",
+        "waveType":"lectures"
+    },
+    {
+        "id": 4,
+        "thumbnail": "4.png",
+        "title": "Video Editing Basic Course",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "lectures": "35",
+        "duration": "15",
+        "waveType":"lectures"
+    },
+    {
+        "id": 5,
+        "thumbnail": "5.png",
+        "title": "Basic Graphic Design Course",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "lectures": "35",
+        "duration": "15",
+        "waveType":"lectures"
+    },
+    {
+        "id": 6,
+        "thumbnail": "6.png",
+        "title": "UI/UX Design Masters Course",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "lectures": "35",
+        "duration": "15",
+        "waveType":"lectures"
+    },
+    {
+        "id": 7,
+        "thumbnail": "7.png",
+        "title": "Advance User Experience Design ",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "lectures": "35",
+        "duration": "15",
+        "waveType":"lectures"
+    },
+    {
+        "id": 8,
+        "thumbnail": "4.png",
+        "title": "Video Editing Advance Course",
+        "author": "David Warner",
+        "authorImg": "chat-auth.png",
+        "lectures": "35",
+        "duration": "15",
+        "waveType":"lectures"
+    }
+]
+  
