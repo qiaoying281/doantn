@@ -9,11 +9,14 @@ using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Net.Mail;
+using System.Net;
 
 namespace QLHL.Repo
 {
     public class AccountRepo : IAccountRepo
     {
+        string baseUrl = "http://localhost:8888";
         private readonly IConfiguration _configuration;
         private readonly QLHLContext _context;
 
@@ -25,7 +28,7 @@ namespace QLHL.Repo
 
         public bool AddAccount(AccountModel model)
         {
-            if (_context.Decentralizations.Any(x => x.decentralizationID == model.DecentralizationId))
+            if (_context.Decentralizations.Any(x => x.decentralizationID == model.DecentralizationId) && !(_context.Accounts.Any(x => x.email == model.email)))
             {
                 Account Account = new()
                 {
@@ -49,9 +52,13 @@ namespace QLHL.Repo
         public ErrorType BanAcc(int id)
         {
             var current = _context.Accounts.FirstOrDefault(x => x.accountID == id);
-            if (current != null && current.Decentralization.authorityName != "Admin")
+            if (current != null)
             {
-                current.status = "Banned";
+                if (current.status == "Working")
+                {
+                    current.status = "Banned";
+                }
+                else current.status = "Working";
                 _context.Accounts.Update(current);
                 _context.SaveChanges();
                 return ErrorType.Succeed;
@@ -61,6 +68,7 @@ namespace QLHL.Repo
 
         public bool ChangePassword(string email, ChangePasswordModel changePasswordModel)
         {
+            
             var currentAccount = _context.Accounts.FirstOrDefault(x => x.email == email);
             if (VerifyPassword(changePasswordModel.password, currentAccount.password) && 
                 changePasswordModel.newPassword == changePasswordModel.confirmPassword)
@@ -187,17 +195,66 @@ namespace QLHL.Repo
             var currentAccount = _context.Accounts.FirstOrDefault(x => x.email.ToLower() == signInModel.email.ToLower());
             if (currentAccount != null && VerifyPassword(signInModel.password, currentAccount.password) && currentAccount.status == "Working")
             {
-                var role = _context.Decentralizations.FirstOrDefault(x => x.decentralizationID == currentAccount.decentralizationId).authorityName.ToString();
+                var role = _context.Decentralizations.FirstOrDefault(x => x.decentralizationID == currentAccount.decentralizationId)
+                    .authorityName
+                    .ToString();
                 string token = CreateToken(signInModel.email, role, 10);
-                currentAccount.resetPasswordToken = token;
-                currentAccount.resetPasswordTokenExpiry = DateTime.Now.AddHours(10);
+/*                currentAccount.resetPasswordToken = token;
+                currentAccount.resetPasswordTokenExpiry = DateTime.Now.AddHours(10);*/
                 _context.Accounts.Update(currentAccount);
                 _context.SaveChanges();
                 return token;
             }
             return null;
         }
+        public string ForgotPassword(ForgotPasswordRequest req) {
+            var user = _context.Accounts.FirstOrDefault(x => x.email == req.email);
+            if (user == null) {
+                return "User not found";
+            }
+            var decent = _context.Decentralizations.FirstOrDefault(x => x.decentralizationID == user.decentralizationId);
+            if(decent == null) {
+                return "Decentralization null";
+            }
+            string authorityName = decent.authorityName;
+            user.resetPasswordToken = CreateToken(req.email, authorityName,1);
+            user.resetPasswordTokenExpiry = DateTime.Now.AddHours(1);
+            var smtpClient = new SmtpClient("smtp.gmail.com") {
+                Port = 587,
+                Credentials = new NetworkCredential("danghienxk@gmail.com", "ajrz dtdl kmkm hxvn"),
+                EnableSsl = true,
+                UseDefaultCredentials = false
+            };
 
+            var mailMessage = new MailMessage {
+                From = new MailAddress(req.email),
+                Subject = "Password Reset",
+                IsBodyHtml = true,
+                Body = $"<a href=\"{baseUrl}/resetPassword?token={user.resetPasswordToken}\">Reset Password</a>",
+            };
+            mailMessage.To.Add(req.email);
+            smtpClient.Send(mailMessage);
+            _context.SaveChanges();
+            return"You may reset password now";
+        }
+        public string ResetPassword(ResetPasswordRequest req) {
+            var user = _context.Accounts.FirstOrDefault(x => x.resetPasswordToken == req.Token);
+            Console.WriteLine(user.email);
+            if (user == null || user.resetPasswordTokenExpiry < DateTime.Now) {
+                return "Invalid Token";
+            }
+            if (req.ConfirmPassword != req.Password) {
+                return "Not match";
+            }
+            Console.WriteLine(req.Password);
+            user.password = HashPassword(req.Password);
+            user.createAt = DateTime.Now;
+            user.resetPasswordToken = null;
+            user.resetPasswordTokenExpiry = null;
+            _context.Accounts.Update(user);
+            _context.SaveChanges();
+            return "Password successfully reset";
+        }
         public bool SignUp(SignUpModel signUpModel)
         {
             if (!_context.Accounts.Any(x => x.email == signUpModel.email) &&
@@ -242,6 +299,7 @@ namespace QLHL.Repo
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.Role, decentralization)
             };
+            
             var authKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("JwtConfig:Secret").Value));
             var token = new JwtSecurityToken
                 (
@@ -261,8 +319,40 @@ namespace QLHL.Repo
         }
         private bool VerifyPassword(string password, string hashedPassword)
         {
+           
             password = password + _configuration.GetSection("JwtConfig:Secret").ToString();
             return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
+        }
+
+        public PageResult<Account> GetAvailableAccount(Pagination pagination, int id)
+        {
+            var lstAccount = _context.Accounts.Where(x => x.decentralizationId == id).ToList();
+            List<Account> accounts = new List<Account>();
+            if (id == 2) 
+            {
+                var lstStudent = _context.Students.ToList();
+                foreach (var account in lstAccount)
+                {
+                    if (!lstStudent.Any(x => x.accountID == account.accountID))
+                    {
+                        accounts.Add(account);
+                    }
+                }
+            }
+            else
+            {
+                var lstTutor = _context.Tutors.ToList();
+                foreach (var account in lstAccount)
+                {
+                    if (!lstTutor.Any(x => x.accountID == account.accountID))
+                    {
+                        accounts.Add(account);
+                    }
+                }
+            }
+            var res = PageResult<Account>.ToPageResult(pagination, accounts);
+            pagination.totalCount = accounts.Count();
+            return new PageResult<Account>(pagination, res);
         }
     }
 }

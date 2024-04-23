@@ -17,6 +17,10 @@ namespace QLHL.IRepo
         string ChangePasswordAfterForgot(ForGotPasswordScreenModel FPSModel, ChangePasswordAfterForgotModel CPModel);
         ErrorType BanAcc(int id);
         string CheckVerifyCodeForgotPassword(ForGotPasswordScreenModel model);
+        string ForgotPassword (ForgotPasswordRequest res);
+        string ResetPassword(ResetPasswordRequest res);
+        PageResult<Account> GetAvailableAccount(Pagination pagination, int id);
+
         //bool RenewToken(string username);
     }
 }

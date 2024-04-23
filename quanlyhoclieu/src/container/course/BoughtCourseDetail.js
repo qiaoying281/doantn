@@ -70,7 +70,7 @@ function CourseDetails() {
     fetchData();
   }, []);
   const [link, setLink] = useState('https://www.youtube.com/embed/PBwzoZ8aFxI?si=JzLOvPTKI6wU5JVG');
-  const [currentTitle, setCurrentTitle] = useState('LD Academy');
+  const [currentTitle, setCurrentTitle] = useState('VA Academy');
   const [visible, setVisible] = useState(false);
   const activeChoose = (value, title, li, si) => {
     lectures.forEach((data) => {

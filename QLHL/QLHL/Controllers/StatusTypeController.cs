@@ -27,11 +27,10 @@ namespace QLHL.Controllers
             }
             return NotFound("Not exist");
         }
-        [HttpGet, Authorize(Roles = "Admin")]
-        public IActionResult GetAll(Pagination pagination)
+        [HttpGet, Authorize(Roles = "Admin, Tutor")]
+        public IActionResult GetAll([FromQuery] Pagination pagination)
         {
             var res = _statusTypeRepo.GetAll(pagination);
-            if (res.data.Count() == 0) return BadRequest("Null");
             return Ok(res);
         }
         [HttpPost, Authorize(Roles = "Admin")]

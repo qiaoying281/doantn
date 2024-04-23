@@ -72,7 +72,7 @@ function CourseDetailForAdmin() {
     fetchData();
   }, [reload, id]);
   const [link, setLink] = useState('https://www.youtube.com/embed/PBwzoZ8aFxI?si=JzLOvPTKI6wU5JVG');
-  const [currentTitle, setCurrentTitle] = useState('LD Academy');
+  const [currentTitle, setCurrentTitle] = useState('VA Academy');
   const [visible, setVisible] = useState(false);
   lectures.forEach((data) => {
     data.classes.forEach((cdata) => {

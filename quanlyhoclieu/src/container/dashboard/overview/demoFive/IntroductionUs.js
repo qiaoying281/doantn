@@ -13,10 +13,10 @@ function IntroductionUs() {
         className="rounded-[12px]"
       />
       <p className="mt-10 text-[15px]">
-        LD Academy, a subsidiary of LD Group technology corporation, originated as a programming academy established in
-        2020, led by Mr. Dang Manh Hien – CTO of LD Group and CEO of LD Academy. It operates with the philosophy of
+        VA Academy, a subsidiary of VA Group technology corporation, originated as a programming academy established in
+        2020, led by Mr. Kieu Van Anh – CTO of VA Group and CEO of VA Academy. It operates with the philosophy of
         &apos;Nurturing Knowledge, Guiding Technology,&apos; aiming to provide high-quality IT workforce training for
-        the general information technology market and specifically for LD Group. We are confident in being a trusted
+        the general information technology market and specifically for VA Group. We are confident in being a trusted
         choice for thousands of students, having collaborated with numerous enterprises, and supplying skilled
         professionals to various entities in the entire Vietnamese IT market. We pride ourselves on our commitment to
         fostering knowledge and paving the way for technology advancement.

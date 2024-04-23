@@ -19,6 +19,14 @@ namespace QLHL.Controllers
             _accountRepo = accountRepo;
             _context = new QLHLContext();
         }
+        [HttpPost("forgot-password")]
+        public IActionResult ForgotPassword([FromBody] ForgotPasswordRequest req) {
+           return Ok(_accountRepo.ForgotPassword(req));
+        }
+        [HttpPost("reset-password")]
+        public IActionResult ResetPassword([FromBody] ResetPasswordRequest req) {
+            return Ok(_accountRepo.ResetPassword(req));
+        }
         [HttpPost("upload-avatar"), Authorize]
         public async Task<IActionResult> UploadFiles(IFormFile file)
         {
@@ -128,7 +136,9 @@ namespace QLHL.Controllers
             var userName = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "username").Value;
             var res = _accountRepo.ChangePassword(userName, changePasswordModel);
             if (res == true) return Ok("Password changed!");
-            return BadRequest("Invalid password!");
+            else {
+                return Unauthorized();
+            }
         }
         [HttpPost("changeStatus"), Authorize(Roles = "Admin")]
         public IActionResult ChangeStatus(string userName, string status)
@@ -138,7 +148,7 @@ namespace QLHL.Controllers
             return BadRequest("Not exist");
         }
         [HttpGet, Authorize(Roles = "Admin")]
-        public IActionResult ShowAll(Pagination pagination)
+        public IActionResult ShowAll([FromQuery]Pagination pagination)
         {
             var res = _accountRepo.GetListAccount(pagination);
             if (res.data.Count() != 0) return Ok(res);
@@ -150,6 +160,12 @@ namespace QLHL.Controllers
             var res = _accountRepo.GetByDec(pagination, id);
             if (res.data.Count() != 0) return Ok(res);
             return BadRequest("Null");
+        }
+        [HttpGet("getAvailable"), Authorize(Roles = "Admin")]
+        public IActionResult GetAvailableAccount([FromQuery]Pagination pagination, int id)
+        {
+            var res = _accountRepo.GetAvailableAccount(pagination, id);
+            return Ok(res);
         }
         [HttpPost("Ban/{id}"), Authorize(Roles = "Admin")]
         public IActionResult BanAcc(int id)

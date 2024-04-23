@@ -17,18 +17,18 @@ namespace QLHL.Controllers
         {
             _courseRepo = new CourseRepo();
         }
-        [HttpGet("{id}"), Authorize(Roles = "Admin")]
+        [HttpGet("{id}"), Authorize(Roles = "Admin, Student, Tutor")]
         public ActionResult GetById(int id)
         {
             var res = _courseRepo.GetById(id);
             if (res != null) return Ok(res);
             return NotFound("Not exist");
         }
-        [HttpGet, Authorize(Roles = "Admin, Student")]
+        [HttpGet, Authorize(Roles = "Admin, Student, Tutor")]
         public IActionResult GetAll([FromQuery]Pagination pagination)
         {
             var role = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role").Value;
-            if (role == "Admin")
+            if (role == "Admin" || role == "Tutor")
             {
                 var res = _courseRepo.GetAll(pagination);
                 if (res.data.Count() != 0) return Ok(res);
@@ -58,6 +58,18 @@ namespace QLHL.Controllers
             if (res.data.Count() != 0) return Ok(res);
             return BadRequest("Null");
         }
+        [HttpGet("getByStudentID"), Authorize(Roles = "Admin")]
+        public IActionResult GetByStudentID([FromQuery]Pagination pagination, [FromQuery]int id)
+        {
+            var res = _courseRepo.GetByStudentID(pagination, id);
+            return Ok(res);
+        }
+        [HttpGet("getUnassign"), Authorize(Roles = "Admin")]
+        public IActionResult GetUnassign([FromQuery] Pagination pagination, [FromQuery] int id)
+        {
+            var res = _courseRepo.GetUnassignment(pagination, id);
+            return Ok(res);
+        }
         [HttpGet("getDetail"), Authorize(Roles = "Student")]
         public IActionResult GetDetail([FromQuery] Pagination pagination)
         {
@@ -65,6 +77,12 @@ namespace QLHL.Controllers
             var res = _courseRepo.GetDetail(pagination, username);
             if (res.data.Count() != 0) return Ok(res);
             return BadRequest("Null");
+        }
+        [HttpGet("getDetailbyCourseID"), Authorize(Roles = "Admin")]
+        public IActionResult GetDetailbyCourseID([FromQuery] Pagination pagination, int id)
+        {
+            var res = _courseRepo.GetDetailbyCourseID(pagination, id);
+            return Ok(res);
         }
         [HttpPost, Authorize(Roles = "Admin")]
         public IActionResult Add(CourseModel model)

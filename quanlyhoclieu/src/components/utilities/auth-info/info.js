@@ -41,12 +41,14 @@ const AuthInfo = React.memo(() => {
     e.preventDefault();
     dispatch(logOut(() => navigate('/')));
   };
-  const [totalMoney, setTotalMoney] = useState(authInfo.totalMoney);
+  const [totalMoney, setTotalMoney] = useState(authInfo.totalMoney ? authInfo.totalMoney : 0);
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await StudentApi.getTotalMoney();
-        setTotalMoney(res.data);
+        if (authInfo.decentralization !== 'Admin') {
+          const res = await StudentApi.getTotalMoney();
+          setTotalMoney(res.data);
+        }
       } catch (error) {
         return 'error';
       }

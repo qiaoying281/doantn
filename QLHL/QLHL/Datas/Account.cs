@@ -14,7 +14,7 @@ namespace QLHL.Datas
         public string status { get; set; } = null!;
         [Required]
         public int decentralizationId { get; set; }
-        public string resetPasswordToken { get; set; }
+        public string? resetPasswordToken { get; set; }
         public DateTime? resetPasswordTokenExpiry { get; set; }
         public DateTime createAt { get; set; }
         public DateTime updateAt { get; set; }

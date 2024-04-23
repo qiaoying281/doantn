@@ -14,43 +14,43 @@ const data = [
     id: 2,
     title: 'Flexible Learning Time',
     content:
-      'Unlike current traditional training models, with our 1:1 learning format alongside mentors boasting 5 years of experience at LD academy, knowledge and experience are conveyed in the most detailed manner—simple, comprehensible, helping students overcome the fear of asking questions',
+      'Unlike current traditional training models, with our 1:1 learning format alongside mentors boasting 5 years of experience at VA academy, knowledge and experience are conveyed in the most detailed manner—simple, comprehensible, helping students overcome the fear of asking questions',
   },
   {
     id: 3,
     title: 'Practical Programming Training Model',
     content:
-      'Our instructors are active programmers in leading technology corporations, and their lectures are distilled from CEO Dang Manh Hien 16 years of teaching experience along with ongoing real-world projects at the LD Group.',
+      'Our instructors are active programmers in leading technology corporations, and their lectures are distilled from CEO Kieu Van Anh 16 years of teaching experience along with ongoing real-world projects at the VA Group.',
   },
   {
     id: 4,
     title: 'Practical Programming Training Model',
     content:
-      'Our instructors are active programmers in leading technology corporations, and their lectures are distilled from CEO Dang Manh Hien 16 years of teaching experience along with ongoing real-world projects at the LD Group.',
+      'Our instructors are active programmers in leading technology corporations, and their lectures are distilled from CEO Kieu Van Anh 16 years of teaching experience along with ongoing real-world projects at the VA Group.',
   },
   {
     id: 5,
     title: 'Practical Programming Training Model',
     content:
-      'Our instructors are active programmers in leading technology corporations, and their lectures are distilled from CEO Dang Manh Hien 16 years of teaching experience along with ongoing real-world projects at the LD Group.',
+      'Our instructors are active programmers in leading technology corporations, and their lectures are distilled from CEO Kieu Van Anh 16 years of teaching experience along with ongoing real-world projects at the VA Group.',
   },
   {
     id: 6,
     title: 'Practical Programming Training Model',
     content:
-      'Our instructors are active programmers in leading technology corporations, and their lectures are distilled from CEO Dang Manh Hien 16 years of teaching experience along with ongoing real-world projects at the LD Group.',
+      'Our instructors are active programmers in leading technology corporations, and their lectures are distilled from CEO Kieu Van Anh 16 years of teaching experience along with ongoing real-world projects at the VA Group.',
   },
   {
     id: 7,
     title: 'Practical Programming Training Model',
     content:
-      'Our instructors are active programmers in leading technology corporations, and their lectures are distilled from CEO Dang Manh Hien 16 years of teaching experience along with ongoing real-world projects at the LD Group.',
+      'Our instructors are active programmers in leading technology corporations, and their lectures are distilled from CEO Kieu Van Anh 16 years of teaching experience along with ongoing real-world projects at the VA Group.',
   },
   {
     id: 8,
     title: 'Practical Programming Training Model',
     content:
-      'Our instructors are active programmers in leading technology corporations, and their lectures are distilled from CEO Dang Manh Hien 16 years of teaching experience along with ongoing real-world projects at the LD Group.',
+      'Our instructors are active programmers in leading technology corporations, and their lectures are distilled from CEO Kieu Van Anh 16 years of teaching experience along with ongoing real-world projects at the VA Group.',
   },
 ];
 

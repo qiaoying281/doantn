@@ -10,7 +10,7 @@ function Feedback() {
       position: 'IT Student',
       avatar: 'https://example.com/avatar1.jpg',
       comment:
-        'The support from the LD Academy community and the responsiveness of the instructors have been invaluable. Whenever I had questions or needed clarification, there was always someone ready to help',
+        'The support from the VA Academy community and the responsiveness of the instructors have been invaluable. Whenever I had questions or needed clarification, there was always someone ready to help',
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ function Feedback() {
       position: 'IT Student',
       avatar: 'https://example.com/avatar2.jpg',
       comment:
-        'What sets LD Academy apart for me is the hands-on approach to learning. The practical projects and real-world scenarios provided in the courses have significantly contributed to my understanding and skill development. It is not just about theoretical knowledge but also about gaining practical experience that is directly applicable in the industry.',
+        'What sets VA Academy apart for me is the hands-on approach to learning. The practical projects and real-world scenarios provided in the courses have significantly contributed to my understanding and skill development. It is not just about theoretical knowledge but also about gaining practical experience that is directly applicable in the industry.',
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ function Feedback() {
       position: 'IT Student',
       avatar: 'https://example.com/avatar2.jpg',
       comment:
-        'The instructors at LD Academy are not only knowledgeable but also skilled in delivering complex concepts in a way that is easy to understand. The courses are well-structured, engaging, and cover a wide range of relevant topics.',
+        'The instructors at VA Academy are not only knowledgeable but also skilled in delivering complex concepts in a way that is easy to understand. The courses are well-structured, engaging, and cover a wide range of relevant topics.',
     },
     {
       id: 4,
@@ -34,7 +34,7 @@ function Feedback() {
       position: 'IT Student',
       avatar: 'https://example.com/avatar2.jpg',
       comment:
-        'I just wanted to take a moment to express my sincere gratitude to LD Academy for providing excellent courses. The learning experience has been nothing short of exceptional, and I am thoroughly impressed with the quality of the content.',
+        'I just wanted to take a moment to express my sincere gratitude to VA Academy for providing excellent courses. The learning experience has been nothing short of exceptional, and I am thoroughly impressed with the quality of the content.',
     },
     {
       id: 5,

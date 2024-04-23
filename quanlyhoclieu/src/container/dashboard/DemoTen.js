@@ -35,7 +35,7 @@ function DemoFive() {
             }
           >
             <PageHeaderBanner
-              title="Welcome To LD Academy"
+              title="Welcome To VA Academy"
               subtitle="
               Knowledge is all you need, come to us."
             />

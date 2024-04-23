@@ -25,12 +25,11 @@ namespace QLHL.Controllers
             if (res != null) return Ok(res);
             return NotFound("Not exist");
         }
-        [HttpGet, Authorize(Roles = "Admin")]
-        public IActionResult GetAll(Pagination pagination)
+        [HttpGet, Authorize(Roles = "Admin, Tutor")]
+        public IActionResult GetAll([FromQuery]Pagination pagination)
         {
             var res = _enrollmentRepo.GetAll(pagination);
-            if (res.data.Count() != 0) return Ok(res);
-            return BadRequest("Null");
+            return Ok(res);
         }
         [HttpPost, Authorize(Roles = "Admin, Student")]
         public IActionResult Add(EnrollmentModel model)

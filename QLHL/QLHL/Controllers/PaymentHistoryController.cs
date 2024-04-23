@@ -32,7 +32,7 @@ namespace QLHL.Controllers
             return NotFound();
         }
         [HttpGet("forStudent"), Authorize(Roles = "Student")]
-        public IActionResult ForStudent(Pagination pagination)
+        public IActionResult ForStudent([FromQuery]Pagination pagination)
         {
             var userName = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "username").Value;
             var res = _paymentHistoryRepo.ForStudent(pagination, userName);
@@ -53,11 +53,10 @@ namespace QLHL.Controllers
             return NotFound();
         }
         [HttpGet("std/{id}"), Authorize(Roles = "Admin")]
-        public IActionResult GetByStudentID(Pagination pagination, int id)
+        public IActionResult GetByStudentID([FromQuery]Pagination pagination, int id)
         {
             var res = _paymentHistoryRepo.GetByStudentID(pagination, id);
-            if (res.data.Count() != 0) return Ok(res);
-            return NotFound();
+            return Ok(res);
         }
     }
 }
