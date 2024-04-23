@@ -214,9 +214,9 @@ const ThemeLayout = (WrappedComponent) => {
                     <Row>
                       <Col md={12} xs={24}>
                         <span className="inline-block w-full font-medium student-footer__copyright md:text-center text-theme-gray dark:text-white60 md:mb-[10px]">
-                          © 2023
+                          © 2024
                           <Link className="mx-[4px] text-primary" to="#">
-                            SovWare
+                            VA
                           </Link>
                         </span>
                       </Col>

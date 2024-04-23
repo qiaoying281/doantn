@@ -96,16 +96,16 @@ function CourseDetails() {
                 />
                 <div>
                   <h5 className="text-dark dark:text-white87 mb-[3px] text-base font-medium leading-[20px]">
-                    Do Dong Dong
+                    Mr Van Anh
                   </h5>
-                  <span className="text-[15px] text-body dark:text-white60">Cựu trẻ em</span>
+                  <span className="text-[15px] text-body dark:text-white60">Kieu Van Anh</span>
                 </div>
               </div>
               <h2 className="text-dark dark:text-white87 mt-[30px] mb-[14px] text-[22px] font-semibold">
                 About This Course
               </h2>
               <p className="text-base text-body dark:text-white60 mb-[28px]">{currentCourse.courseDescription}</p>
-              <p className="mb-0 text-base text-body dark:text-white60">Đoạn này cho vào cho dài!</p>
+              <p className="mb-0 text-base text-body dark:text-white60">Description</p>
               <h2 className="text-dark dark:text-white87 mt-[30px] mb-[14px] text-[22px] font-semibold">
                 What You Will Learn
               </h2>
@@ -114,25 +114,25 @@ function CourseDetails() {
                   {`Basic about ${currentCourse.courseName}`}
                 </li>
                 <li className="relative pl-4 text-body dark:text-white60 text-base after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:w-1.5 after:h-1.5 after:bg-dark dark:after:bg-whiteDark after:rounded-full">
-                  {`Basic about ${currentCourse.courseName}`}
+                  {`Lv1:Remembering about ${currentCourse.courseName}`}
                 </li>
                 <li className="relative pl-4 text-body dark:text-white60 text-base after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:w-1.5 after:h-1.5 after:bg-dark dark:after:bg-whiteDark after:rounded-full">
-                  {`Basic about ${currentCourse.courseName}`}
+                  {`Lv2:Understanding about ${currentCourse.courseName}`}
                 </li>
                 <li className="relative pl-4 text-body dark:text-white60 text-base after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:w-1.5 after:h-1.5 after:bg-dark dark:after:bg-whiteDark after:rounded-full">
-                  {`Basic about ${currentCourse.courseName}`}
+                  {`Lv3:Applying about ${currentCourse.courseName}`}
                 </li>
                 <li className="relative pl-4 text-body dark:text-white60 text-base after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:w-1.5 after:h-1.5 after:bg-dark dark:after:bg-whiteDark after:rounded-full">
-                  {`Basic about ${currentCourse.courseName}`}
+                  {`Lv4:Analyzing about ${currentCourse.courseName}`}
                 </li>
                 <li className="relative pl-4 text-body dark:text-white60 text-base after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:w-1.5 after:h-1.5 after:bg-dark dark:after:bg-whiteDark after:rounded-full">
-                  {`Basic about ${currentCourse.courseName}`}
+                  {`Lv5:Evaluating about ${currentCourse.courseName}`}
                 </li>
                 <li className="relative pl-4 text-body dark:text-white60 text-base after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:w-1.5 after:h-1.5 after:bg-dark dark:after:bg-whiteDark after:rounded-full">
-                  {`Basic about ${currentCourse.courseName}`}
+                  {`Lv6:Creating about ${currentCourse.courseName}`}
                 </li>
                 <li className="relative pl-4 text-body dark:text-white60 text-base after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:w-1.5 after:h-1.5 after:bg-dark dark:after:bg-whiteDark after:rounded-full">
-                  {`Basic about ${currentCourse.courseName}`}
+                  {`Master about ${currentCourse.courseName}`}
                 </li>
               </ul>
               <h2 className="text-dark dark:text-white87 mt-[30px] mb-[14px] text-[22px] font-semibold">FAQ </h2>

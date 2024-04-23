@@ -68,7 +68,7 @@ const AuthInfo = React.memo(() => {
             <Heading className="text-dark dark:text-white87 mb-0.5 text-sm" as="h5">
               {authInfo.lastName}
             </Heading>
-            <p className="mb-0 text-xs text-body dark:text-white60">Cựu trẻ em</p>
+            <p className="mb-0 text-xs text-body dark:text-white60">Kieu Van Anh</p>
           </figcaption>
         </figure>
         <ul className="mb-0">
