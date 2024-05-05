@@ -8,8 +8,8 @@ namespace QLHL.Helper
         public static string send(string mailTo, string htmlTemplate, string Subject = ""/*, bool check = false*/)
         {
             // Cấu hình thông tin máy chủ SMTP
-            string appPass = "xhepnorehofygyyu";
-            string mailAddress = "idkr37@gmail.com";
+            string appPass = "idsahiuayrxojuys";
+            string mailAddress = "qiaoying281@gmail.com";
             var smtpClient = new SmtpClient("smtp.gmail.com")
             {
 

@@ -8,12 +8,12 @@ namespace QLHL.Helper
     {
         public static string SendEmailWithAttachment(string mailTo, string subject, string body,/* bool check = false,*/ List<IFormFile> attachments = null)
         {
-            string appPass = "xhepnorehofygyyu";
-            string mailAddress = "idkr37@gmail.com";
+            string appPass = "idsahiuayrxojuys";
+            string mailAddress = "qiaoying281@gmail.com";
 
             // Tạo đối tượng MimeMessage
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Trung Tam Lua Dao", mailAddress));
+            message.From.Add(new MailboxAddress("Trung Tam VA", mailAddress));
             message.To.Add(new MailboxAddress("Gủi Bạn", mailTo));
             message.Subject = subject;
 

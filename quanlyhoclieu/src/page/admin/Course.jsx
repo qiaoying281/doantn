@@ -26,7 +26,7 @@ const PageRoutes = [
 function Course() {
   const [pagination, setPagination] = useState({
     pageNumber: 1,
-    pageSize: 10,
+    pageSize: 100000,
   });
   const [courses, setCourses] = useState([]);
   useEffect(() => {
@@ -34,7 +34,7 @@ function Course() {
       try {
         setPagination({
           pageNumber: 1,
-          pageSize: 10,
+          pageSize: 100000,
         });
         const res = await AdminApi.getCourse(pagination);
         setCourses(res.data.data);
@@ -81,7 +81,7 @@ function Course() {
                       // onChange={onHandleChange}
                       showSizeChanger
                       // onShowSizeChange={onShowSizeChange}
-                      pageSize={10}
+                      pageSize={100}
                       defaultCurrent={1}
                       total={courseData.length}
                     />

@@ -94,13 +94,14 @@ function FeeTable() {
     fee.map((data) => {
       const { feeID, cost, isChecked, status, courseID } = data;
       let index = -1;
+      let name = '';
       if (status === 'Not Yet') {
         coursesObject.map((value, i) => {
           if (value.courseID === courseID) {
             index = i;
-            return i;
+            name = coursesObject[index].courseName ? coursesObject[index].courseName : '';
           }
-          return -1;
+          return index;
         });
         return productTableData.push({
           course: (
@@ -116,7 +117,7 @@ function FeeTable() {
                 <figcaption>
                   <div className="cart-single__info">
                     <Heading as="h6" className="text-base font-medium text-dark dark:text-white87">
-                      {coursesObject[index].courseName}
+                      {name}
                     </Heading>
                   </div>
                 </figcaption>
