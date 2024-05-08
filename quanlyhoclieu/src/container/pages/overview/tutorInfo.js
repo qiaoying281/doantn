@@ -4,72 +4,72 @@ import { Link, useNavigate } from 'react-router-dom';
 import UilCamera from '@iconscout/react-unicons/icons/uil-camera';
 import { Button } from '../../../components/buttons/buttons';
 import Heading from '../../../components/heading/heading';
-import { getCities, getCommune, getDistricts } from '../../../config/dataService/ProvinceOpenAPI';
+// import { getCities, getCommune, getDistricts } from '../../../config/dataService/ProvinceOpenAPI';
 import { AdminApi } from '../../../config/api/admin/AdminApi';
 
 const { Option } = Select;
 function TutorInfo() {
   const navigate = useNavigate();
-  const [cities, setCities] = useState([]);
-  const [districts, setDistricts] = useState([]);
-  const [communes, setCommunes] = useState([]);
+  // const [cities, setCities] = useState([]);
+  // const [districts, setDistricts] = useState([]);
+  // const [communes, setCommunes] = useState([]);
   const [state, setState] = useState({
     values: '',
   });
-  const [address, setAddress] = useState({
-    province: 0,
-    district: 0,
-    commune: 0,
-  });
+  // const [address, setAddress] = useState({
+  //   province: 0,
+  //   district: 0,
+  //   commune: 0,
+  // });
 
-  const handleDistrictChange = async (values) => {
-    setAddress({
-      province: values,
-      district: 0,
-      commune: 0,
-    });
-    const res = await getDistricts(values);
-    if (!res.data) {
-      setAddress({
-        province: 0,
-        district: 0,
-        commune: 0,
-      });
-      return;
-    }
-    setDistricts(res.data.districts);
-  };
-  const handleCommuneChange = async (values) => {
-    setAddress({
-      province: address.province,
-      district: values,
-      commune: 0,
-    });
-    const res = await getCommune(values);
-    if (!res.data) {
-      setAddress({
-        province: address.province,
-        district: 0,
-        commune: 0,
-      });
-      return;
-    }
-    setCommunes(res.data.wards);
-  };
-  const handleCommuneChangeEnd = async (values) => {
-    setAddress({
-      ...address,
-      commune: values,
-    });
-  };
+  // const handleDistrictChange = async (values) => {
+  //   setAddress({
+  //     province: values,
+  //     district: 0,
+  //     commune: 0,
+  //   });
+  //   const res = await getDistricts(values);
+  //   if (!res.data) {
+  //     setAddress({
+  //       province: 0,
+  //       district: 0,
+  //       commune: 0,
+  //     });
+  //     return;
+  //   }
+  //   setDistricts(res.data.districts);
+  // };
+  // const handleCommuneChange = async (values) => {
+  //   setAddress({
+  //     province: address.province,
+  //     district: values,
+  //     commune: 0,
+  //   });
+  //   const res = await getCommune(values);
+  //   if (!res.data) {
+  //     setAddress({
+  //       province: address.province,
+  //       district: 0,
+  //       commune: 0,
+  //     });
+  //     return;
+  //   }
+  //   setCommunes(res.data.wards);
+  // };
+  // const handleCommuneChangeEnd = async (values) => {
+  //   setAddress({
+  //     ...address,
+  //     commune: values,
+  //   });
+  // };
   const [accounts, setAccounts] = useState([]);
   useEffect(() => {
     // Gọi API lấy danh sách tỉnh thành
     async function fetchMyAPI() {
-      const res = await getCities();
+      // const res = await getCities();
       const res1 = await AdminApi.getAvailableAccount({ pageSize: 100, pageNumber: 1 }, 3);
       setAccounts(res1.data.data);
-      setCities(res.data);
+      // setCities(res.data);
     }
     fetchMyAPI();
   }, []);
@@ -184,7 +184,7 @@ function TutorInfo() {
             </Select>
           </Form.Item>
 
-          <Form.Item
+          {/* <Form.Item
             label="Address"
             className="mb-4 form-label-w-full form-label-text-start dark:text-white-60 [&>div]:flex-col text-dark dark:text-white87 font-medium [&>div>div>label]:!text-dark dark:[&>div>div>label]:!text-white87"
             name="address"
@@ -230,7 +230,7 @@ function TutorInfo() {
                 </Form.Item>
               </Col>
             </Row>
-          </Form.Item>
+          </Form.Item> */}
 
           <Form.Item>
             <div className="flex items-center min-md:justify-end justify-center mt-[15px]">

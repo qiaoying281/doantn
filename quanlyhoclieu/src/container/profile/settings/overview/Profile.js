@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Row, Col, Form, Input, Select, message } from 'antd';
+import { Row, Col, Form, Input, message } from 'antd';
 import { Button } from '../../../../components/buttons/buttons';
 import Heading from '../../../../components/heading/heading';
 import { GlobalUtilityStyle } from '../../../styled';
-import { getCities, getCommune, getDistricts } from '../../../../config/dataService/ProvinceOpenAPI';
+// import { getCities, getCommune, getDistricts } from '../../../../config/dataService/ProvinceOpenAPI';
 import { StudentApi } from '../../../../config/api/student/StudentApi';
 
-const { Option } = Select;
+// const { Option } = Select;
 function Profile() {
   const [form] = Form.useForm();
-  const [cities, setCities] = useState([]);
-  const [districts, setDistricts] = useState([]);
-  const [communes, setCommunes] = useState([]);
+  // const [cities, setCities] = useState([]);
+  // const [districts, setDistricts] = useState([]);
+  // const [communes, setCommunes] = useState([]);
   const { authInfo } = useSelector((states) => {
     return {
       authInfo: states.auth.authInfo,
@@ -36,73 +36,78 @@ function Profile() {
         address.district,
         address.commune,
       );
+      setAddress({
+        province: authInfo.provinceID || 0,
+        district: authInfo.districtID || 0,
+        commune: authInfo.communeID || 0,
+      });
       message.success(response.data);
     } catch (e) {
       message.error('Update failure');
     }
     setState({ ...address, values: { ...values, tags: state.tags } });
   };
-  const handleDistrictChange = async (values) => {
-    setAddress({
-      province: values,
-      district: 0,
-      commune: 0,
-    });
-    const res = await getDistricts(values);
-    if (!res.data) {
-      setAddress({
-        province: 0,
-        district: 0,
-        commune: 0,
-      });
-      return;
-    }
-    setDistricts(res.data.districts);
-  };
-  const handleCommuneChange = async (values) => {
-    setAddress({
-      province: address.province,
-      district: values,
-      commune: 0,
-    });
-    const res = await getCommune(values);
-    if (!res.data) {
-      setAddress({
-        province: address.province,
-        district: 0,
-        commune: 0,
-      });
-      return;
-    }
-    setCommunes(res.data.wards);
-  };
-  const handleCommuneChangeEnd = async (values) => {
-    setAddress({
-      ...address,
-      commune: values,
-    });
-  };
+  // const handleDistrictChange = async (values) => {
+  //   setAddress({
+  //     province: values,
+  //     district: 0,
+  //     commune: 0,
+  //   });
+  //   const res = await getDistricts(values);
+  //   if (!res.data) {
+  //     setAddress({
+  //       province: 0,
+  //       district: 0,
+  //       commune: 0,
+  //     });
+  //     return;
+  //   }
+  //   setDistricts(res.data.districts);
+  // };
+  // const handleCommuneChange = async (values) => {
+  //   setAddress({
+  //     province: address.province,
+  //     district: values,
+  //     commune: 0,
+  //   });
+  //   const res = await getCommune(values);
+  //   if (!res.data) {
+  //     setAddress({
+  //       province: address.province,
+  //       district: 0,
+  //       commune: 0,
+  //     });
+  //     return;
+  //   }
+  //   setCommunes(res.data.wards);
+  // };
+  // const handleCommuneChangeEnd = async (values) => {
+  //   setAddress({
+  //     ...address,
+  //     commune: values,
+  //   });
+  // };
   const handleCancel = (e) => {
     e.preventDefault();
     form.resetFields();
   };
-  useEffect(() => {
-    // Gọi API lấy danh sách tỉnh thành
-    async function fetchMyAPI() {
-      const res = await getCities();
-      setCities(res.data);
-    }
-    fetchMyAPI();
-    if (authInfo.provinceID) {
-      handleDistrictChange(authInfo.provinceID);
-    }
-    if (authInfo.districtID) {
-      handleCommuneChange(authInfo.districtID);
-    }
-    if (authInfo.communeID) {
-      handleCommuneChangeEnd(authInfo.communeID);
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Gọi API lấy danh sách tỉnh thành
+  //   async function fetchMyAPI() {
+  //     const res = await getCities();
+  //     setCities(res.data);
+  //   }
+  //   fetchMyAPI();
+  //   if (authInfo.provinceID) {
+  //     handleDistrictChange(authInfo.provinceID);
+  //   }
+  //   if (authInfo.districtID) {
+  //     handleCommuneChange(authInfo.districtID);
+  //   }
+  //   if (authInfo.communeID) {
+  //     handleCommuneChangeEnd(authInfo.communeID);
+  //   }
+  // }, []);
 
   return (
     <div className="bg-white dark:bg-white10 m-0 p-0 mb-[25px] rounded-10 relative">
@@ -137,7 +142,7 @@ function Profile() {
                 >
                   <Input />
                 </Form.Item>
-                <Form.Item
+                {/* <Form.Item
                   label="Address"
                   rules={[{ required: true, message: '*Required' }]}
                   className="mb-4 form-label-w-full form-label-text-start"
@@ -166,7 +171,7 @@ function Profile() {
                         return <Option value={value.code}>{value.name}</Option>;
                       })}
                   </Select>
-                </Form.Item>
+                </Form.Item> */}
 
                 <div className="mt-11">
                   <Button size="default" htmlType="submit" type="primary" className="h-11 px-[20px] font-semibold">
