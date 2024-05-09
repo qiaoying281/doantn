@@ -5,9 +5,9 @@ namespace QLHL.Helper
 {
     public class UplloadFile
     {
-        static string cloudName = "ddflxwxfd";
-        static string apiKey = "663813413734825";
-        static string apiSecret = "BkoYkiLduhBGV595BJj94uGquVQ";
+        static string cloudName = "dacgo5cie";
+        static string apiKey = "828635572283886";
+        static string apiSecret = "F7GhuXluHM94raE00yr_14aqzUw";
         static private readonly Random rnd = new Random();
 
         static public Account account = new Account(cloudName, apiKey, apiSecret);
